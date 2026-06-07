@@ -21,14 +21,14 @@ customize the location by setting the environment variable `${DOC_REPO}`.
 
 Creates a new database in `share/handbook/database.sqlite3`
 
-  $ handbook create-database
+    $ handbook create-database
 
 #### web
 
 Serves a HTTP API that can query the handbook with FTS
 
-  $ handbook web
-  $ fetch 'http://localhost:9292?q=ports'
+    $ handbook web
+    $ fetch 'http://localhost:9292?q=ports'
 
 #### Library
 
