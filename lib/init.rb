@@ -2,8 +2,10 @@
 
 require "asciidoctor"
 require "cgi"
+require "roda"
 require "sequel"
 
+require_relative "router"
 require_relative "repository"
 require_relative "book"
 require_relative "chapter"

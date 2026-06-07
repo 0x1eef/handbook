@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+def main(argv)
+  Dir.chdir File.join(__dir__, "..", "..") do
+    Process.spawn RbConfig.ruby, "-S", "rackup"
+    Process.wait
+  end
+end
+main(ARGV)

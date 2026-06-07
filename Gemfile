@@ -5,5 +5,7 @@ gem "logger"
 gem "sqlite3"
 gem "irb"
 gem "rubocop", "~> 1.84"
-
 gem "standard", "~> 1.54"
+gem "roda", "~> 3.104"
+gem "rackup", "~> 2.3"
+gem "puma", "~> 8.0"

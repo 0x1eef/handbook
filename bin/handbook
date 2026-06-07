@@ -11,10 +11,14 @@ def usage
 end
 
 def main(argv)
+  File.realpath File.join(__dir__, "..", "libexec")
+
   case argv[0]
   when nil then usage
+  when "web"
+    Process.spawn File.join("libexec", "handbook", argv[0]), *argv[1..]
+    Process.wait
   when "new-database"
-    File.realpath File.join(__dir__, "..", "libexec")
     Process.spawn File.join("libexec", "handbook", argv[0]), *argv[1..]
     Process.wait
   else usage
