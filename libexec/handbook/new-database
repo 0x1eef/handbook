@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+lib = File.realpath File.join(__dir__, "..", "..", "lib")
+require File.join(lib, "init")
+
+
+def main(argv)
+  book    = Book.handbook
+  book_id = DB[:books].insert(name: book.name)
+
+  book.chapters.each do |chapter|
+    puts "handbook: insert chapter #{chapter.name}"
+    chapter_id = DB[:chapters].insert(
+      name: chapter.name,
+      book_id:
+    )
+    puts "handbook: ok"
+    chapter.sections.each do |section|
+      puts "handbook: insert section"
+      DB[:sections].insert(
+        text: section.chunk,
+        chapter_id:
+      )
+      puts "handbook: ok"
+    end
+  end
+  puts "handbook: #{Book.database}"
+end
+main(ARGV)

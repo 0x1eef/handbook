@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+def usage
+  $stderr.puts <<-USAGE
+#{$0} command [OPTIONS]
+
+commands:
+  new-database   new SQLite3 database
+  USAGE
+end
+
+def main(argv)
+  case argv[0]
+  when nil then usage
+  when "new-database"
+    libexec = File.realpath File.join(__dir__, "..", "libexec")
+    Process.spawn File.join("libexec", "handbook", argv[0]), *argv[1..]
+    Process.wait
+  else usage
+  end
+end
+main(ARGV) 
