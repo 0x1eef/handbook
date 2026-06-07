@@ -6,7 +6,8 @@ def usage
     #{$0} command [OPTIONS]
     
     commands:
-      new-database   new SQLite3 database
+      create-database   new SQLite3 database
+      web               serve a HTTP search API
   USAGE
 end
 

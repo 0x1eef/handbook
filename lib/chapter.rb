@@ -10,6 +10,10 @@ class Chapter
   attr_reader :book
 
   ##
+  # @return [String]
+  attr_reader :path
+
+  ##
   # @param [Book] book
   # @param [String] path
   # @return [Chapter]
