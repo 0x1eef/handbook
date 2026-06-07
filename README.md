@@ -35,7 +35,12 @@ Serves a HTTP API that can query the handbook with FTS
     $ handbook web
     $ fetch 'http://localhost:9292?q=ports'
 
-#### Library
+### Library
+
+#### Repository
+
+The Repository, Book, Chapter, and Section classes 
+provide the handbook to a Ruby runtime:
 
 ```ruby
 r = Repository.new(locale: "en")
