@@ -3,7 +3,12 @@
 This project provides the 
 [FreeBSD documentation repository](https://cgit.freebsd.org/doc) 
 as a SQLite3 database that can be queried with FTS through a headless
-web interface that scripts can easily interact with. 
+web interface that scripts can easily interact with. This project
+began as a way to provide [robert](https://github.com/llmrb/robert)
+with access to the FreeBSD handbook, which is where the focus remains
+at this early stage,  although the FreeBSD documentation repository 
+contains **multiple books** beyond the standard handbook (eg the 
+developers handbook, the porters handbook, etc). 
 
 ## Usage
 
