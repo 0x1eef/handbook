@@ -7,15 +7,28 @@ then be exported to a SQLite3 database for search and retrieval.
 
 ## Usage
 
-#### Requirements
+### Requirements
+
+#### Repository
 
 A copy of the [FreeBSD documentation repository](https://cgit.freebsd.org/doc) is required. <br>
 By default it is expected to be found at `../doc` although you can 
 customize the location by setting the environment variable `${DOC_REPO}`.
 
-#### CLI
+### CLI
 
-  $ handbook new-database
+#### create-database
+
+Creates a new database in `share/handbook/database.sqlite3`
+
+  $ handbook create-database
+
+#### web
+
+Serves a HTTP API that can query the handbook with FTS
+
+  $ handbook web
+  $ fetch 'http://localhost:9292?q=ports'
 
 #### Library
 
