@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "asciidoctor"
 require "cgi"
 require "sequel"
@@ -9,10 +11,10 @@ require_relative "chapter/section"
 
 DB = Sequel.connect(Book.database)
 
-DB.create_table? :books do 
+DB.create_table? :books do
   primary_key :id
   String :name, null: false
-end 
+end
 
 DB.create_table? :chapters do
   primary_key :id
@@ -25,5 +27,3 @@ DB.create_table? :sections do
   String :text, text: true
   Integer :chapter_id, null: false
 end
-
-

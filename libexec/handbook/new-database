@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 lib = File.realpath File.join(__dir__, "..", "..", "lib")
 require File.join(lib, "init")
-
 
 def main(argv)
   book    = Book.handbook

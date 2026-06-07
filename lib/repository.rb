@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Repository
   ##
   # @return [String]
@@ -23,7 +25,7 @@ class Repository
   ##
   # @return [Array<Book>]
   def books
-    Dir[File.join(path, "documentation", "content", locale, "books", "*")].filter_map do 
+    Dir[File.join(path, "documentation", "content", locale, "books", "*")].filter_map do
       next unless File.directory?(_1)
       Book.new(self, _1)
     end

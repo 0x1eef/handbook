@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Book
   ##
   # @return [String]
@@ -40,7 +42,7 @@ class Book
   ##
   # @return [Array<Chapter>]
   def chapters
-    Dir[File.join(path, "*")].filter_map do 
+    Dir[File.join(path, "*")].filter_map do
       next unless File.directory?(_1)
       Chapter.new(self, _1)
     end

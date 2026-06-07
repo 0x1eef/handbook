@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Chapter
   ##
   # @return [String]
@@ -15,16 +17,16 @@ class Chapter
     @book = book
     @path = path
     @name = File.basename(path)
-    @file = Asciidoctor.load_file File.join(path, "_index.adoc"), 
-                                  parse: true, 
-                                  header_footer: false, 
+    @file = Asciidoctor.load_file File.join(path, "_index.adoc"),
+                                  parse: true,
+                                  header_footer: false,
                                   doctype: "book"
   end
 
   ##
   # @return [Chapter::Section]
   def sections(node = @file)
-    node.sections.flat_map do 
+    node.sections.flat_map do
       [_1.extend(Section), *sections(_1)]
     end
   end
