@@ -2,9 +2,22 @@
 
 class Router < Roda
   route do |r|
-    r.root do
+    r.get "search" do
       response["Content-Type"] = "application/json"
       search(r.params["q"]).to_json
+    end
+
+    r.root do
+      response["Content-Type"] = "text/plain"
+      <<-STEVE
+      Here's to the crazy ones.
+      The misfits. The rebels. The troublemakers.
+      The round pegs in the square holes - the ones who see things differently.
+      They're not fond of rules and they have no respect for the status quo.
+      You can praise them, disagree with them, quote them, disbelieve them,
+      glorify or vilify them. About the only thing that you can't do is ignore them.
+      Because they change things.
+      STEVE
     end
   end
 
