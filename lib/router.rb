@@ -4,7 +4,7 @@ class Router < Roda
   route do |r|
     r.root do
       response["Content-Type"] = "application/json"
-      search_sections(r.params["q"]).to_json
+      search(r.params["q"]).to_json
     end
   end
 
