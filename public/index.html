@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>4.4bsd.dev</title>
+    <link rel="icon" href="/favicon.ico" sizes="any">
     <style>
       :root {
         --bg: #f7f7f4;
@@ -127,7 +128,7 @@
         <div>
           <h1>4.4bsd.dev</h1>
           <p class="summary">
-            This is a free-to-use service for the BSD community that provides full-text search across 
+            A free-to-use service for the BSD community that provides full-text search across 
             FreeBSD's official documentation and handbooks. The HTTP interface is intended 
             for scripts, terminals, and tools that speak JSON.
           </p>
@@ -180,6 +181,15 @@ $ fetch -qo - 'https://4.4bsd.dev/handbook/p/search?q=Makefile'</code></pre>
           For now that's the only project I know of. This service is still young and relatively unknown. If
           your project uses this service, and you'd like to have it featured on this page, please reach out 
           by email - <a href="mailto:0x1eef@hardenedbsd.org">0x1eef@hardenedbsd.org</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Is it open source?</h2>
+        <p>
+          <a href="https://github.com/0x1eef/4.4bsd.dev#readme">Absolutely</a>. This service is 100% open source, 
+          and it can be self-hosted. It is optimized to run on FreeBSD, and includes a <code>make install</code> 
+          target alongside an <code>rc.d</code> script for managing the web server as a service.  
         </p>
       </section>
 
