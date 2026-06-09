@@ -6,7 +6,8 @@ class Router < Roda
 
   route do |r|
     r.root do
-      r.redirect "/index.html"
+      response["content-type"] = "text/html"
+      File.read(File.join(self.class.root, "public", "index.html"))
     end
 
     r.on "handbook" do
