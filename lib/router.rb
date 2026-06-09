@@ -10,6 +10,15 @@ class Router < Roda
       File.read(File.join(self.class.root, "public", "index.html"))
     end
 
+    r.public
+
+    r.on "robert" do
+      r.root do
+        response["content-type"] = "text/html"
+        File.read(File.join(self.class.root, "public", "robert", "index.html"))
+      end
+    end
+
     r.on "handbook" do
       q = r.params["q"]
       response["content-type"] = "application/json"
@@ -32,8 +41,6 @@ class Router < Roda
         end
       end
     end
-
-    r.public
   end
 
   private
