@@ -23,7 +23,7 @@ install: check-bundle
 		cp -R "$$dir" "$(DESTDIR)$(APPDIR)/$$dir"; \
 	done
 	$(MKDIR) "$(DESTDIR)$(APPDIR)/share/handbook"
-	$(INSTALL) -m 0644 share/handbook/.gitkeep "$(DESTDIR)$(APPDIR)/share/handbook/.gitkeep"
+	$(INSTALL) -m 0644 share/handbook/database.sqlite3 "$(DESTDIR)$(APPDIR)/share/handbook/database.sqlite3"
 	$(MKDIR) "$(DESTDIR)$(RCDIR)"
 	$(SED) -e "s|%%APPDIR%%|$(APPDIR)|g" -e "s|%%PREFIX%%|$(PREFIX)|g" \
 		etc/rc.d/handbook.in > "$(DESTDIR)$(RCDIR)/handbook"
