@@ -8,39 +8,22 @@
     <link rel="icon" href="/favicon.ico" sizes="any">
 
     <!-- SEO -->
-    <meta name="description" content="The 4.4BSD web service provides full-text search across official FreeBSD documentation and handbooks through a small HTTP JSON interface for scripts, terminals, and tools.">
+    <meta name="description" content="FreeBSD services for the BSD community — including Robert, an AI tutor accessible via SSH, and full-text search across the FreeBSD handbooks.">
     <meta name="robots" content="index,follow">
 
     <!-- OpenGraph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="4.4BSD">
     <meta property="og:title" content="4.4BSD">
-    <meta property="og:description" content="Full-text search across official FreeBSD documentation and handbooks through an HTTP JSON interface.">
+    <meta property="og:description" content="FreeBSD services for the BSD community — including Robert, an AI tutor accessible via SSH, and full-text search across the FreeBSD handbooks.">
     <meta property="og:url" content="https://4.4bsd.dev/">
     <meta property="og:image" content="https://4.4bsd.dev/images/beastie.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="4.4BSD">
-    <meta name="twitter:description" content="Full-text search across official FreeBSD documentation and handbooks through an HTTP JSON interface.">
+    <meta name="twitter:description" content="FreeBSD services for the BSD community — including Robert, an AI tutor accessible via SSH, and full-text search across the FreeBSD handbooks.">
     <meta name="twitter:image" content="https://4.4bsd.dev/images/beastie.png">
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebAPI",
-        "name": "4.4BSD",
-        "url": "https://4.4bsd.dev/",
-        "description": "Full-text search across official FreeBSD documentation and handbooks through an HTTP JSON interface.",
-        "license": "https://github.com/0x1eef/4.4bsd.dev/blob/master/LICENSE",
-        "programmingLanguage": "Ruby",
-        "isAccessibleForFree": true,
-        "provider": {
-          "@type": "Organization",
-          "name": "4.4bsd.dev"
-        }
-      }
-    </script>
 
     <style>
       :root {
@@ -77,7 +60,7 @@
         padding-bottom: 28px;
       }
 
-      img {
+      .hero-image {
         width: 160px;
         height: auto;
       }
@@ -138,6 +121,28 @@
         border-left-color: #b21b1b;
       }
 
+      .ssh-command {
+        display: flex;
+        align-items: center;
+        min-width: 0;
+        margin: 12px 0 0;
+        padding: 0;
+        overflow-x: auto;
+        background: #fff;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        border-left: 3px solid #b21b1b;
+        color: var(--fg);
+        font-size: clamp(20px, 4vw, 30px);
+        line-height: 1.25;
+      }
+
+      .ssh-command code {
+        display: block;
+        padding: 10px 0 10px 14px;
+        white-space: nowrap;
+      }
+
       a {
         color: inherit;
       }
@@ -153,7 +158,7 @@
           grid-template-columns: 1fr;
         }
 
-        img {
+        .hero-image {
           width: 120px;
         }
       }
@@ -165,21 +170,48 @@
         <div>
           <h1>4.4BSD</h1>
           <p class="summary">
-            A free-to-use service for the BSD community that provides full-text search across
-            FreeBSD's official documentation and handbooks. The HTTP interface is intended
-            for scripts, terminals, and tools that speak JSON.
+            FreeBSD services for the BSD community. Publicly accessible, no
+            signup required.
           </p>
         </div>
-        <img src="/images/beastie.png" alt="Beastie">
+        <img class="hero-image" src="/images/beastie.png" alt="Beastie">
       </header>
 
       <section>
-        <h2>Books</h2>
+        <h2>Robert</h2>
         <p>
-          The following books have been indexed. <br>
-          More could be added in the future.
+          Robert is a statically linked, 3MB binary that teaches and
+          troubleshoots FreeBSD. He searches man pages, the FreeBSD
+          handbooks, the ports tree, and the package database, and grounds
+          every answer in official FreeBSD documentation.
         </p>
+        <pre class="ssh-command"><code>ssh robert@4.4bsd.dev</code></pre>
+        <p>
+          No signup. No account. Just SSH.
+        </p>
+      </section>
 
+      <section>
+        <h2>Handbook Search</h2>
+        <p>
+          Full-text search across the FreeBSD handbooks via an HTTP+JSON
+          interface, intended for scripts, terminals, AI agents, and any
+          other software that speaks HTTP.
+        </p>
+        <pre><code class="sh">##
+# Search the user's handbook
+fetch -qo - 'https://4.4bsd.dev/handbook/u/search?q=pkg'
+
+##
+# Search the developer's handbook
+fetch -qo - 'https://4.4bsd.dev/handbook/d/search?q=compiler'
+
+##
+# Search the porter's handbook
+fetch -qo - 'https://4.4bsd.dev/handbook/p/search?q=Makefile'</code></pre>
+        <p>
+          Indexed books:
+        </p>
         <ul>
           <li>FreeBSD User's Handbook</li>
           <li>FreeBSD Developer's Handbook</li>
@@ -188,93 +220,55 @@
       </section>
 
       <section>
-        <h2>How can I use it?</h2>
-        <p>
-          The primary 4.4bsd.dev interface is HTTP, and the intended audience
-          is scripts, terminals, AI agents, and any other piece of software
-          that can speak HTTP+JSON. It is probably not very useful for human eyes. :)
-        </p>
-        <pre><code class="sh">##
-# Search the user's handbook
-$ fetch -qo - 'https://4.4bsd.dev/handbook/u/search?q=pkg'
-
-##
-# Search the developer's handbook
-$ fetch -qo - 'https://4.4bsd.dev/handbook/d/search?q=compiler'
-
-##
-# Search the porter's handbook
-$ fetch -qo - 'https://4.4bsd.dev/handbook/p/search?q=Makefile'</code></pre>
-      </section>
-
-      <section>
-        <h2>Where is it used?</h2>
-        <p>
-          It is used by <a href="/robert/">Robert</a> &ndash; a statically linked, 3MB binary designed
-          to teach and troubleshoot FreeBSD. Robert uses this service for full-text search, and it helps
-          ground Robert's logic and answers in official FreeBSD documentation.
-        </p>
-        <p>
-          For now that's the only project I know of. This service is still young and relatively unknown. If
-          your project uses this service, and you'd like to have it featured on this page, please reach out
-          by email - <a href="mailto:0x1eef@hardenedbsd.org">0x1eef@hardenedbsd.org</a>
-        </p>
-      </section>
-
-      <section>
         <h2>Is it open source?</h2>
         <p>
-          This service is <a href="https://github.com/0x1eef/4.4bsd.dev#readme">100% open source</a>
-          and it can be self-hosted. It is optimized to run on FreeBSD, and includes a <code>make install</code>
-          target alongside an <code>rc.d</code> script for managing the web server as a service.
+          Both services are 100% open source. The handbook search can be
+          <a href="https://github.com/0x1eef/4.4bsd.dev#readme">self-hosted</a>
+          and includes a <code>make install</code> target alongside an
+          <code>rc.d</code> script. Robert is also
+          <a href="https://github.com/llmrb/robert#readme">open source</a>
+          and can be built from source.
         </p>
       </section>
 
       <section>
         <h2>4.4BSD</h2>
         <p>
-          The name 4.4BSD might look strange to an unfamiliar eye but it carries a lot of weight &ndash;
-          both historically and for me personally.
+          The name 4.4BSD might look strange to an unfamiliar eye but it
+          carries a lot of weight — both historically and for me personally.
         </p>
         <p>
           <strong>History</strong>
         </p>
         <p>
-          It stands as the final release of BSD from the Computer Systems Research Group
-          at Berkeley. The final release served as the foundation for what went on to become
-          FreeBSD, OpenBSD, and NetBSD.
+          It stands as the final release of BSD from the Computer Systems
+          Research Group at Berkeley. The final release served as the
+          foundation for what went on to become FreeBSD, OpenBSD, and
+          NetBSD.
         </p>
         <p>
           <strong>Personal</strong>
         </p>
         <p>
-          I was 14 or 15 years old when I was sent a CD of FreeBSD 4.4-RELEASE. That's a long time ago.
-          Windows 98 can be your anchor. I picked it up at the post office, and after playing with it
-          for the summer, I had become obsessed with it. It felt like a system that wanted to teach you
-          how it works, and I loved that. FreeBSD 4.4-RELEASE became my introduction to BSD, and the
-          name 4.4BSD comes from the final release from CSRG at Berkeley.
-        </p>
-      </section>
-
-      <section>
-        <h2>Thanks</h2>
-        <p>
-          Thanks to everyone who has contributed to FreeBSD, and its documentation. The documentation is seriously
-          impressive, and it covers far more than I realized. There isn't one handbook, there are multiple, and I
-          haven't even indexed all of them.
+          I was 14 or 15 years old when I was sent a CD of FreeBSD
+          4.4-RELEASE. That's a long time ago. Windows 98 can be your
+          anchor. I picked it up at the post office, and after playing with
+          it for the summer, I had become obsessed with it. It felt like a
+          system that wanted to teach you how it works, and I loved that.
+          FreeBSD 4.4-RELEASE became my introduction to BSD, and the name
+          4.4BSD comes from the final release from CSRG at Berkeley.
         </p>
       </section>
 
       <section>
         <h2>Contact</h2>
         <p>
-          I can be reached at <a href="mailto:0x1eef@hardenedbsd.org">0x1eef@hardenedbsd.org</a>. <br>
-          Feel free to reach out with questions, feedback, suggestions, etc.
+          I can be reached at
+          <a href="mailto:0x1eef@hardenedbsd.org">0x1eef@hardenedbsd.org</a>.
         </p>
       </section>
       <footer>
-        0BSD licensed. <br>
-        Source documentation comes from the <a href="https://cgit.freebsd.org/doc">FreeBSD documentation repository</a>.
+        0BSD licensed.
       </footer>
     </main>
   </body>
