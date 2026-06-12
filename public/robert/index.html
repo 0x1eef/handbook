@@ -302,6 +302,30 @@
       </header>
 
       <section>
+        <h2>How can I try Robert?</h2>
+        <p>
+          The easiest way:
+          <br>
+            <pre><code class="sh"
+ssh robert@4.4bsd.dev
+</code>code></pre>
+          <br>
+          The recommended way:
+        <pre><code class="sh">##
+# Download the latest release
+$ fetch https://github.com/llmrb/robert/releases/download/v0.11.0/robert
+$ chmod +x robert
+
+##
+# Set an API key
+$ export DEEPSEEK_SECRET="sk-..."
+
+##
+# Start Robert
+$ ./robert</code></pre>
+        </p>
+      </section>
+      <section>
         <h2>What makes Robert different?</h2>
         <ul>
           <li><strong>Designed for education, not automation.</strong> <br>Robert explains what to do and why, but leaves system changes in your hands.</li>
@@ -381,22 +405,6 @@
       </section>
 
       <section>
-        <h2>Install</h2>
-        <pre><code class="sh">##
-# Download the latest release
-$ fetch https://github.com/llmrb/robert/releases/download/v0.11.0/robert
-$ chmod +x robert
-
-##
-# Set an API key
-$ export DEEPSEEK_SECRET="sk-..."
-
-##
-# Start Robert
-$ ./robert</code></pre>
-      </section>
-
-      <section>
         <h2>Anthem</h2>
         <p>
           This song played a lot in the background while I was hacking on Robert, so it
@@ -416,7 +424,8 @@ $ ./robert</code></pre>
           "https://www.youtube-nocookie.com/embed/zEuI2_sAZ9o",
           "https://www.youtube-nocookie.com/embed/6vicc9ZEDx0",
           "https://www.youtube-nocookie.com/embed/OHq4fc2T8sw",
-          "https://www.youtube-nocookie.com/embed/yo4pmauhugo"
+          "https://www.youtube-nocookie.com/embed/yo4pmauhugo",
+          "https://www.youtube-nocookie.com/embed/bZ2FTFbBxwU"
         ];
         var iFrame = document.querySelector("iframe");
         iFrame.setAttribute("src", tracks[Math.floor(Math.random() * tracks.length)]);
