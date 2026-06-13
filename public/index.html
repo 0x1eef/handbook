@@ -201,6 +201,34 @@
         margin-bottom: 4px;
       }
 
+      table {
+        width: 100%;
+        margin: 14px 0 0;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        padding: 10px 12px;
+        border-top: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        color: var(--fg);
+        font-weight: 600;
+      }
+
+      td {
+        color: var(--muted);
+      }
+
+      td code {
+        color: var(--fg);
+      }
+
       .footer {
         margin-top: 32px;
         padding-top: 24px;
@@ -258,17 +286,28 @@
           interface, intended for scripts, terminals, AI agents, and any
           other software that speaks HTTP.
         </p>
-        <pre><code class="sh">##
-# Search the user's handbook
-fetch -qo - 'https://4.4bsd.dev/handbook/u/search?q=pkg'
-
-##
-# Search the developer's handbook
-fetch -qo - 'https://4.4bsd.dev/handbook/d/search?q=compiler'
-
-##
-# Search the porter's handbook
-fetch -qo - 'https://4.4bsd.dev/handbook/p/search?q=Makefile'</code></pre>
+        <table>
+          <thead>
+            <tr>
+              <th>Endpoint</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>GET /handbook/u/search?q=QUERY</code></td>
+              <td>Search the FreeBSD user's handbook.</td>
+            </tr>
+            <tr>
+              <td><code>GET /handbook/d/search?q=QUERY</code></td>
+              <td>Search the FreeBSD developer's handbook.</td>
+            </tr>
+            <tr>
+              <td><code>GET /handbook/p/search?q=QUERY</code></td>
+              <td>Search the FreeBSD porter's handbook.</td>
+            </tr>
+          </tbody>
+        </table>
         <p style="margin-top:14px;">Indexed books:</p>
         <ul>
           <li>FreeBSD User's Handbook</li>
